@@ -14,8 +14,6 @@
 *.vrb
 *.xdv
 
-# PDF files
-*.pdf
 
 # Temporary files
 *.bak
