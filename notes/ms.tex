@@ -212,7 +212,9 @@ that there are some thing of complex analysis like maximum principle and probabl
 Recall that conformal maps are either holomorphic or antiholomorphic.
 \end{remark}
 
-\subsection{Grassmanian}
+\subsection{Gauss map}
+
+\subsubsection{Grassman and normal bundles}
 
 Recall what is grassmanian \(\operatorname{Gr}(m,n)\) with \(m<n\), the variety of \(m\)-dimensional vector subspaces of an \(n\)-dimensional vector space \(V\), and Plucker embedding \(\operatorname{Gr}(m,n)\hookrightarrow \mathbb{P}\Lambda^{m}V\).
 
@@ -231,7 +233,6 @@ For a map \(f_i=C_i^j e_j\). If they are orthonormal you get \(\det C=\pm 1\) an
 Correspondingly define the space of \textit{oriented} vector subspaces of euclidean space by \(\operatorname{Gr}^+(m,\mathbb{R}^n)\).
 For a basis \(U=\left<u_1,\ldots,u_m\right>\), we get a basis \(\Lambda^{m}U=\left<u_1\wedge u_2\wedge\ldots \wedge u_m\right>\).
 
-
 \begin{example}\leavevmode
 \begin{itemize}
 \item \(\operatorname{Gr}(1,2)=\) circle.
@@ -247,10 +248,16 @@ dualize
 \[\begin{tikzcd}0\arrow[r]&Q^\vee\arrow[r]&V^\vee\arrow[r]&U^\vee\arrow[r]&0\end{tikzcd}\]
 So you automatically get isomorphisms
 \[\operatorname{Gr}(m,V)=\operatorname{Gr}(V,n-m)=\operatorname{Gr}(n-m,V^\vee)=\operatorname{Gr}(V^\vee,m)\]
-And now pick some orientation on \(V\), you shall get 
+Now apply \(\Lambda\):
 \begin{exercise}\leavevmode
 \(\Lambda^{n}V \cong \Lambda^{m}U \otimes \Lambda^{n-m}Q\)
 \end{exercise}
+
+\begin{proof}[Attempt of solution]\leavevmode
+The exact sequence above gives \(V=U \oplus  Q\), so that \(\Lambda^{n}V=\Lambda^{n}(U \oplus  Q)\).  So I think well \(\Lambda^{n}V\) is just tensor of \(V\) \(n\) times quotiented by the antisymmetry relation \(x \otimes x=0\). And that's close but not exactly…
+%\[V^{\otimes n}=(U \oplus  Q)^{\otimes n}\neq \bigoplus_{k}\underbrace{\binom{n}{k}}_{\substack{\text{tensor}  \\ \text{not} \\\text{commut.} }}U^{\otimes n-k} \otimes Q^{\otimes k}\overset{\text{want}{\rightsquigarrow } U^{\otimes m}\otimes Q^{\otimes (n-m)}\]
+
+\end{proof}
 
 \begin{example}\leavevmode
 \(\operatorname{Gr}^+(2,3)=S^2=\) conic \(\subset\mathbb{C}P^{2}\), more exactly \(\{x^2+y^2+z^2=0\}\).
@@ -260,7 +267,30 @@ And now pick some orientation on \(V\), you shall get
 \(\operatorname{Gr}^+(2,\mathbb{R}^n)\cong Q^{n-2}\subset \mathbb{C}P^{n-1}\) of the form \(\left\{\sum_{i=1}^n z_i^2=0\right\}\)
 \end{exercise}
 
-\subsection{Gauss map}
+\begin{proof}[Solution]\leavevmode
+When is a complex subspace of a complex vector space expressed with real coordinates?
+
+Here's the general statement. For any \(U_\mathbb{C} \subset V_\mathbb{C}\), the following are equivalent
+\begin{itemize}
+\item There exists \(U_{\mathbb{R}} \subset V_\mathbb{R}\) such that \(U_\mathbb{C} = U_\mathbb{R} \otimes \mathbb{C}\) (equations are real)
+\item \(\overline{U_\mathbb{C}}=U_\mathbb{C}\) where bar denotes all the complex conjugate vectors inside the space, i.e. \(\text{bar}:V_\mathbb{C} \to V_\mathbb{C} \), \((z_1,\ldots,z_n) \mapsto (\overline{z_1},\ldots,\overline{z_n}\). In conclusion, \(\sum a_i\cdot z_i=0 \iff \sum \overline{a_{\bar{i}}}\overline{z_{\bar{i}}}=0\).
+\item \(\overline{\Lambda^{m}U_\mathbb{C}}=\Lambda^{m}U_\mathbb{C} \in \Lambda^{m}V_\mathbb{C}\).
+\item \(\exists  \pi \in \Lambda^{m}V_\mathbb{C}\) s.t. \(\Lambda^{m}U = \pi \otimes_\mathbb{R} \mathbb{C}\).
+\end{itemize}
+the point is that these points have \textbf{real Plücker coordinates}.
+
+``for complex isotropic vector construct a real bivector (the line is the same)" And every multiple of this vector gives you the same line. So you can projectivize. So for any point in the projectivized quadric we get a line. And also we can conjugate and get the same line. So that's from quadric to grasmannian. Choice of orientation is a choice of the two points.
+\end{proof}
+
+\begin{remark}[dani]\leavevmode
+Lo que yo entendí: te pegas la métrica euclidiana real en el subespacio. Es una forma quadráitca. Como es positiva no degenerada no hay zeros. Pero complejificas y obtienes que sí hay zeros, de hecho, tienen que ser dos zeros. Esos zeros creo que son zeros en el plano. Pero orientas, entonces hay uno nomás. E é isso, esse aí é um mapa bijetivo entre a quadrica e a grasmanniana orientada.
+\end{remark}
+
+\begin{remark}\leavevmode
+And this has all to do with Weierstrass representation.
+\end{remark}
+
+\subsubsection{Gauss map}
 Consider 
 \[M^{(m)}\xrightarrow{f}N^{(2)}\]
 and do
@@ -274,6 +304,7 @@ and then consider the \textit{\textbf{Grassmanization}} of \(f^*T_N\), which is 
 \operatorname{Gr}(m,f^*T_N)\arrow[d]\\
 M
 \end{tikzcd}\]
+
 Now consider sections of this thing.
 
 \begin{thing7}{Important observation}[Gauss map definition]\leavevmode
@@ -335,15 +366,17 @@ So \textit{\textbf{Gauss map for non-parametric surface}} is
 (and you can just write \(\sqrt{1+\varphi_u^2+\varphi_v^2} =\sqrt{g} \) but Ok). Similarly…
 \end{thing6}
 
-And differentiate!
-\[dG:T_pM \to T_{G(p)}\operatorname{Gr}(m,n)=\operatorname{Hom}(T_pM,\text{Normal bandle}N )\]
-So you see
+\subsubsection{Second fundmental form}
+
+And differentiate! At every point we get
+\[d_pG:T_pM \to T_{G(p)}\operatorname{Gr}(m,n)=\operatorname{Hom}(T_pM,N )\]
+(where \(N\) is the normal bundle). So globally
 \[dG \in \operatorname{Hom}(T_pM,\operatorname{Hom}(T_pM, N))\]
-So it's a map
+So it's a map aa
 \(T_pM \times T_pM \to N\) 
 But \(N\) is trivialized! So you can think of  \textit{numbers}. So it's a form.
 
-\begin{claim}\leavevmode
+\begin{claim}[Exercise]\leavevmode
 That map is symmetric.
 \end{claim}
 So you can define it to be the \textit{\textbf{second fundamental form}}.
@@ -384,8 +417,106 @@ Right so what is the \textit{\textbf{first variation of volume}}? It's
 \[V'|_{t=0}=-\int_\Sigma(\sqrt{g} du) \left<H,W\right>\]
 And it has all to do with the expression \(\Sigma g^{ij}B_{ij}\).
 
+\section{Class 4}
 
+\section{Class 5}
 
+\subsection{Classical Field theory: fields, lagrangian and action}
 
+\begin{enumerate}
+\item \textit{\textbf{Field}}: the map \(\varphi:\Sigma \to X\).
+\item \textit{\textbf{Action}}: \(S[\varphi]=\int_\Sigma \underbrace{\mathcal{L}[\varphi]d \operatorname{Vol}_\Sigma}_{\text{Lagrangian density} }\).
+
+	You give me a field, I give you a top-form, i.e. something you can integrate in \(\Sigma\). That's the idea of the Lagrangian. So \(\mathcal{L}(\varphi)\) is a ``rule" to produce densities from fields. \(\mathcal{L}[\varphi]\) is a local operator. \(\mathcal{L}[\varphi]\) depends on the fields and their derivatives. Classical version is \(\mathcal{L}=E - U\) i.e. kinetic \(-\) potential energy.
+\item \textit{\textbf{Equation of motion (EOM):}} are the critical points of \(S\)
+\end{enumerate}
+
+\subsection{Area functional aka Nambu-Goto action}
+
+\[S_{\operatorname{ NG}}[\varphi]=\int_{\Sigma}d\operatorname{Vol}_{\varphi^*g}\]
+where \(d\operatorname{Vol}_G=\sqrt{- \det G_{ij}}\) where \(\varphi: \Sigma \to X\) and \(X\) might have lorenzian metric, so that's why there's  sign.
+
+\subsection{Polyakov action}
+
+It's \textbf{a thing that depends both on \(h\) and \(\varphi\)}: 
+\[S_{\text{pol} }[\varphi;h]=\int_{\Sigma}d\operatorname{Vol}_h \|d\varphi\|_g^2\]
+where \(\|d \varphi\|^2\) might as well be explained in the context of:
+
+\subsection{Dirichlet energy/energy functional}
+
+\[\operatorname{tr}\left(\begin{tikzcd}T_p\Sigma \arrow[r,"df"]&  T_{f(p)}X\arrow[d,"\sharp_g"]\\T_p^\vee \Sigma \arrow[u,"(\sharp_h)^{-1}"]&  T_{f(p)}X \arrow[l,"(df)^\vee"]\end{tikzcd}\right) \]
+which gives
+\[\frac{\partial X^\mu}{\partial u_i}g_{\mu\nu}(\varphi(u))\frac{\partial X^\nu}{\partial u_j}h^{ij}\]
+So you give me a map, I give you a number. $\mathsf{OK}$ but definition of of \textit{\textbf{Dirichlet energy/energy functional}} it's actually the same thing as Polyakov action but \textbf{\(h\) is fixed}:
+\[E_{h}(\varphi)=\int_{\Sigma}d\operatorname{Vol}_h \|d\varphi\|_g^2\]
+
+\begin{thing8}{Important example}\leavevmode
+If we take usual euclidean metrics we get usual laplacian operator and usual harmonic functions.
+\end{thing8}
+
+\begin{thing8}{Nice example}\leavevmode
+If you had a line instead of a surface, i.e. \(\Sigma=\mathbb{R}\) then you'd get that the it is a geodesic (in \(X\)) iff… the map is harmonic!
+\end{thing8}
+
+\begin{upshot}\leavevmode
+That's what's going on: harmonicity characterizes minimizing these functionals. So minimal surfaces, geodesics, appear along with geodesics.
+\end{upshot}
+
+\subsection{Harmonic function}
+
+\begin{defn}\leavevmode
+A map \(\varphi:(\Sigma,h) \to (X,g)\) is called \textit{\textbf{\((h,g)\)-harmonic}} if it is a critical point of the energy functional
+\end{defn}
+
+So in terms of Polyakov action you have some equations of motion (=critical points of P. action):
+\begin{enumerate}
+\item \(\frac{ \delta S}{\delta \varphi}=0\) i.e. \(\varphi\) is \(h\)-harmonic.
+\item \(\frac{\delta S}{\delta h}=0\) some other thing we'll study up front.
+\end{enumerate}
+
+\subsection{Symmetries of Dirichlet energy}
+
+Weil transformations (conformal transformations= take the metric and multiply by a function) preserve Dirichlet energy. Which is a complex structure (the conformal class of the metric). We mean--- \(E\) depends on the complex structure of \(\Sigma\).
+
+\subsection{Feynman quantization}
+
+\[Z(\hslash)=\int_{\text{Fields} }e^{\frac{i S[\varphi]}{\hslash}}\mathcal{D}\varphi\]
+
+\subsection{The other critical point of Polyakov}
+
+Recall that Polyakov depends both on \(h\) and \(\varphi\). So there must be some interpretation of
+\[\frac{\delta S}{\delta h}=0.\]
+First we need to differentiate determinant. See \href{https://en.wikipedia.org/wiki/Adjugate_matrix#Jacobi's_formula}{wiki}, cofactor matrix appears. So the inverse matrix appears.
+\[\text{*more computations*} \]
+\begin{quotation}
+	``So 2nd EOM says that \(h \) and \(G\) (I fundamental form of \(\varphi^*g\)) lie in the same conformal class (and also shows the exact solution)"
+\end{quotation}
+So they give the same complex structure. And it goes back to Nambu-Goto action---we get rid of the \(h\).
+
+\subsection{Mean curvature vector (again)}
+
+\(\vec{H}(u)\) is a normal vector such that
+\begin{enumerate}
+\item \[\delta S_{\operatorname{ NG}}=\int \delta \vec{X}\cdot \vec{H}\operatorname{Vol}g\]
+for any variation \(\delta \vec{X}\).
+\item \(\vec{H}=\Delta \vec{X}\).
+\item \(\vec{H} =B_{ij}G^{ij}\)
+	where
+	\[B_{ij}=\left(\frac{\partial^2 \vec{X}}{\partial u_i\partial u_j}\right) \text{\(\leftsquigarrow \) II fundamental form} \]
+	so the projection to normal space.
+\item \(\vec{H}=\operatorname{tr}(S)\) (mean curvature is the trace of shape operator.) So \textit{\textbf{shape operator}} is
+	 \[S:=\sharp^{-1}_G \circ \sharp_B,\]
+	an operator on  \(T \Sigma\) valued in \(f^*N\).
+\end{enumerate}
+
+\begin{exercise}\leavevmode
+\begin{enumerate}
+\item Prove \(1 \iff 2 \iff 3\). \textbf{Hint.}  You write the variation formula and integrate by parts and that's it.
+\item Write them down in case \(n=3\). \(\varphi\) grpo off \(u,v \to (u,v,f(u,v))\), \(G_{ij}\), \(G^{ij}\), \(B^{ij}\).
+\end{enumerate}\end{exercise}
+
+\begin{defn}\leavevmode
+\textit{\textbf{Third fundamental form}} is…
+\end{defn}
 \clearpage\bibliography{bib.bib}
 \end{document}
