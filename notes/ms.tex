@@ -518,5 +518,154 @@ for any variation \(\delta \vec{X}\).
 \begin{defn}\leavevmode
 \textit{\textbf{Third fundamental form}} is…
 \end{defn}
+
+\section{Class ?}
+
+\subsection{Vier bein}
+
+If you happen to read the paper by Shild (?) (or is it ``The relativistic string" you may find the concept of \textit{\textbf{vier bein}} which is equivalently a choice of local orthonormal base of a vector bundle and a filtration \(F^1\subset F^2 \subset F^3 \subset\ldots F^n = E\). (So you just choose the first \(i\) of the orthonormal sections to produce \(F^i\).) What's nice about this is that you allow the sections to be nonconmutative, unlike the \(\partial_i\) which satisfy \([\partial_i,\partial_j]=\delta_{ij}\).
+
+\subsection{Schild action}
+
+\begin{enumerate}
+	\item Length: \(\delta\left(m \int_{u^*}^{u^{* *}}[(\dot x)^2]^{\frac{1}{2}}du\right) \)
+	\item Energy: \(\delta\left(_{u^*}^{u^{* *}}\frac{1}{2}(\dot x)^2\right) \)
+\end{enumerate}
+
+\begin{question}\leavevmode
+\begin{enumerate}
+\item why variation is defined in terms of velocity
+	why delta s2 = only the mid term in the xapsion
+\end{enumerate}
+\end{question}
+
+\begin{remark}\leavevmode
+First variation formula shows: critical point of length functional \(\implies\) geodesic  \(\dot \dot x=0\)
+\end{remark}
+
+\begin{defn}\leavevmode
+\textit{\textbf{Mean curvature flow}} is such that its derivative is \(\vec{H}\).
+\end{defn}
+
+\section{Class}
+
+\begin{claim}\leavevmode
+Locally any harmonic function
+\end{claim}
+
+\section{Class}
+
+\begin{enumerate}
+\item Two definitions of hodge star.
+\item Second definition gives an isomorphism \(\det V\otimes \Lambda^{k}\cong \Lambda^{n-k}V\) 
+\item \(d^*=* \circ d \circ *\)
+\begin{exercise}\leavevmode
+Notice that in the case of \(n=2k\) we have that \(*_g:\Omega^{k}(V)\to \Omega^{k}(V)\). For \(n=2\), \(k=1\), show that \(*_g=J_g\), where \(J_g\) is the almost complex structure defined by \(g\) (discussed in earlier sessions).
+\end{exercise}
+\item Laplace operator on Riemannian manifolds: \(\Delta^g:=[d,d^*]=d d^*-d^* d=d * d *- * d * d.\)
+\item \textit{\textbf{Harmonic \(k\)-forms}}: \(\ker \Delta^g:\Omega^{k}(M)\to \Omega^{k}(M)\).
+\item Notice that \(\Delta^g=\underbrace{* d *}_{\operatorname{div}}\underbrace{d}_{\operatorname{grad}}\) matches the other definition for laplacian in riemannian manifolds.
+	\item \textbf{Thm (E. Hopf).} For any \((M,g)\), harmonic functions satisfy \textit{\textbf{maximum principle}}. That is, any harmonic function \(f:U \to \mathbb{R}\) for \(U\) connected and open, if \(\exists p \in U\) that is a local maximum or local minimum, then \(f\) is constant on \(U\). (So if \(f\) was nonconstant the point should be in the boundary somehow.)
+	\item Another definition of laplacian: \(\Delta^g=\sum(\xi_k)^2+\nabla_{\xi_k}\xi_k\)for an orthonormal frame \(\xi_k\), where \(\xi_k^2\) means apply \(\xi\) as a differential operator twice. So this is a second order differential operator. So if you are euclidean the \(\nabla\) part vanishes (so maybe think of Christoffel symbols) and you are left with the other part, which is usual laplacian.
+
+\item \textbf{Prop.} On euclidean space, \(\Delta=\sum\partial_i^2\).
+\item \textbf{Prop (mean value).} \(\Delta f=0 \iff \forall  B (P,R)\) ball,
+	\[f(P)=\frac{1}{\operatorname{Vol} B}\int f(Q) \operatorname{Vol}_g\]
+	which is the mean value of \(f\) in \(B\). (Comment: you can derive mean value property from Cauchy integral formula.)
+\item Another remark about mean value property: holds in general for manifolds. For surface case it's easier because we have isothermal coordinates.
+\item Recall that for \(X:\Sigma \to \mathbb{R}^n\) we have a laplacian \(\Delta_g \vec{X}=(\Delta X^1,\ldots,\Delta X^n)\) because vector fields on \(\mathbb{R}^n\) are vectors in \(\mathbb{R}^n\). So we showed at some point that \(\Delta_g \vec{X}=\vec{H}\).
+\item Then a remark on isothermal coordinates: basic vectors are orthogonal and of the same size.
+\item Now consider
+	\[\phi^\alpha(u,v)=\frac{\partial X^\alpha}{\partial u}-i \frac{\partial X^\alpha}{\partial v}\]
+(I think \(\phi\) is a map \(\mathbb{R}^2 \to \mathbb{R}^2=\mathbb{C}\).) So \textbf{Claim.} \(X^\alpha\) is harmonic \(\iff\) \(\phi^\alpha\) is holomorphic.
+
+Recall from complex analysis that \(\Delta f=0 \iff \partial_z f\) is holomorphic. So choose for \(f\) one of the component functions of the map \(X\).
+
+\item So notice: when you have a minimal surface you have \(X\) is harmonic so \(\phi^\alpha\) will be holomorphic for all \(\alpha\). Then, in conformal coordinates (cf. isothermal coordinates above), we get
+	\[\operatorname{Re}\vec{\phi} \perp \operatorname{Im}\vec{\phi},\qquad |\operatorname{Re}\vec{\phi}|=|\operatorname{Im}\vec{\phi}|.\]
+\item  Now the other direction: if you get the data from the last equation, can you construct a minimal surface? So first notice that
+	\[d X^\alpha=\frac{\partial X^\alpha}{\partial u}du+\frac{\partial X^\alpha}{\partial v}dv.\]
+	Then some computation followed and we conclude that
+	\[X^\alpha(p)=\operatorname{Re}\int_{p_0}^pQ(z)dz, \qquad z=u+iv\]
+And then
+\begin{claim}\leavevmode
+If \(Q^\alpha(z)dz\) are holomorphic differentials on \((\Sigma,J)\) + connection, then the last equation gives a minimal surface in \(\mathbb{R}^n\). And then some more computations and we conlcude that
+\[\text{conformal coordinates} \iff \sum \phi_k(z)^2=0 \]
+So you have a collection of holomorphic functions that their sum of squares equals zero.
+
+\end{claim}
+\item \textit{\textbf{Weierstrass data}}:
+	\begin{enumerate}
+	\item A complex structure \(J\) on \(\Sigma\).
+	\item \(\alpha_1,\ldots,\alpha_n \in \Gamma(\Sigma_J,\omega_\Sigma)\) such that
+		\[\sum_{k=1}^n(\alpha_k)^2=0 \in \Gamma(\Sigma_J,\omega_\Sigma^{\otimes 2})\]
+	\item \(\forall \gamma \in H_1(\Sigma,\mathbb{R})\) s.t. \(\forall k=1,\ldots,n\),
+		\[\operatorname{Re} \int_\gamma \alpha_k=0\]
+		``Global conditions on periods"
+	\end{enumerate}
+\begin{claim}\leavevmode
+Weierstrass data \(\iff\) Minimal surfaces with
+\[\vec{X}(p)=\operatorname{Re}\int_{p_0}^p \vec{\alpha}.\]
+\end{claim}
+\end{enumerate}
+
+\subsection{Outline of the proof of E. Hopf. theorem}
+
+\begin{thm}[E. Hopf]\leavevmode
+For any \((M,g)\), harmonic functions satisfy \textit{\textbf{maximum principle}}. That is, any harmonic function \(f:U \to \mathbb{R}\) for \(U\) connected and open, if \(\exists p \in U\) that is a local maximum or local minimum, then \(f\) is constant on \(U\).
+\end{thm}
+
+\begin{proof}\leavevmode
+\begin{enumerate}[label=\textbf{Step \arabic*}]
+\item Make sure you can pick a ``Referencial geodésico" about every point of \(M\). This is an orthonormal frame \(\{E_i\} \subset \mathfrak{X}(U)\), where \(p \in U\) such that \(\Big(\nabla_{E_i}E_j\Big)_p=0\). This frame can be obtained by taking geodesic coordinates at the point, an orthonormal base \(\{e_i\}\) of \(T_pM\), and taking the parallel transport of the vectors \(e_i\) along radial geodesics emanating from \(p\). (\cite{doc}, Cap. III, Ex. 7.)
+
+\item Prove that \[di_X \operatorname{Vol}=\operatorname{div}X \operatorname{Vol}\] (\cite{doc} Cap. III, Ex. 11.) To do this pick a Geodesic frame \(E_i\) and its dual coframe \(\varepsilon^i\), i.e. satisfying \(\varepsilon^i(E_j)=\delta_{ij}\). Then \(\operatorname{Vol}=\varepsilon^1 \wedge \ldots \wedge \varepsilon^n\). Then for any \(X=X^iE_i \in \mathfrak{X}(U)\),
+	\begin{align*}
+	i_X\operatorname{Vol}&=\varepsilon^1\wedge\ldots\wedge\varepsilon^n(X^iE_i,\cdot,\ldots,\cdot)=X^i\varepsilon^1\wedge\ldots\wedge\varepsilon^n(E_i,\cdot,\ldots,\cdot)
+	\end{align*}
+	How to compute that? Recall that for top-forms we have
+	\[\varepsilon^1\wedge\ldots\wedge\varepsilon^n(Z_1,\ldots,Z_n)=\det(\varepsilon^i(Z_j))\]
+	so for example if \(n=3\)
+	\begin{align*}\varepsilon^1\wedge \varepsilon^2\wedge\varepsilon^3(E_1,Z_2,Z_3)&=\begin{vmatrix} \varepsilon^1(E_1)&\varepsilon^1(Z_2) &\varepsilon^1(Z_3)\\
+\varepsilon^2(E_1)&\varepsilon^2(Z_2)&\varepsilon^2(Z_3)\\
+\varepsilon^3(E_1)&\varepsilon^3(Z_2)&\varepsilon^3(Z_3)
+	\end{vmatrix}=\begin{vmatrix} 1&\varepsilon^1(Z_2) &\varepsilon^1(Z_3)\\
+0&\varepsilon^2(Z_2)&\varepsilon^2(Z_3)\\
+0&\varepsilon^3(Z_2)&\varepsilon^3(Z_3)
+	\end{vmatrix}\\
+	&=\varepsilon^2(Z_2)\varepsilon^3(Z_3)-\varepsilon^2(Z_3)\varepsilon^3(Z_2)=\varepsilon^2\wedge\varepsilon^3(Z_2,Z_3),\\
+	\varepsilon^1\wedge\varepsilon^2\wedge\varepsilon^3(E_2,Z_2,Z_3)&=\begin{vmatrix} 0&\varepsilon^1(Z_2) &\varepsilon^1(Z_3)\\
+1&\varepsilon^2(Z_2)&\varepsilon^2(Z_3)\\
+0&\varepsilon^3(Z_2)&\varepsilon^3(Z_3)
+	\end{vmatrix}=-\varepsilon^1\wedge\varepsilon^3(Z_2,Z_3)
+	\end{align*}
+and so on. When we sum over all \(i\), we get
+\[X^i\varepsilon^1\wedge\ldots\wedge\varepsilon^n(E_i,\cdot,\ldots,\cdot)=\sum_{i}(-1)^{i+1}X^i\varepsilon^1\wedge\ldots\wedge\widehat{\varepsilon^i}\wedge\ldots\wedge\varepsilon^n.\]
+Now take exterior derivative of that, we get
+\begin{align*}
+d i_X\operatorname{Vol}&=\sum_i(-1)^{i+1}(dX^i)\wedge\varepsilon^1\wedge\ldots\wedge\widehat{\varepsilon^i}\wedge\ldots\wedge\varepsilon^n\\
+&+\sum_{i}(-1)^{i+1}X^i\wedge d(\varepsilon^1\wedge\ldots\wedge\widehat{\varepsilon^i}\wedge\ldots\wedge\varepsilon^n)\end{align*}
+And then the first term actually is
+\begin{align*}
+\sum_i(-1)^{i+1}E_jX^i\varepsilon^j\wedge\varepsilon^1\wedge\ldots\wedge\widehat{\varepsilon^i}\wedge\ldots\wedge\varepsilon^n&=E_iX^i\operatorname{Vol}
+\end{align*}
+while the second term vanishes because look,
+\begin{align*}d \varepsilon^i(E_j,E_k)&=E_j\varepsilon^i(E_k)-E_k\varepsilon^i(E_j)-\varepsilon^i([E_j,E_k])\\
+&=-\varepsilon^i(\nabla_{E_j}E_k-\nabla_{E_k}E_j)\qquad \text{torsion!} \end{align*}
+which vanishes at \(p\) because we said that this geodesic frame would have vanishing Christoffel symbols at \(p\). So we conclude:
+\[di_X \operatorname{Vol}=E_iX^i\operatorname{Vol}\]
+
+Now you just have to think what is divergence: divergence is \(\operatorname{div}X\overset{\operatorname{def}}{=}\operatorname{tr}(v \mapsto \nabla_vX)\). So
+\begin{align*}
+\operatorname{div}X&=\sum_{i}\left<\nabla_{E_i}X^jE_j,E_i\right>=\sum_{i}\left<E_iX^jE_j,E_i\right>+X^j\left<\nabla_{E_i}E_j,E_i\right>\\
+&=\sum_i \left<E_iX^jE_j,E_i\right>=\sum_iE_iX^j\left<E_j,E_i\right>=E_iX^i
+\end{align*}
+again using that we are a geodesic frame with vanishing covariant derivative at \(p\).
+
+\item (This is the next exercise in \cite{doc}… *in progress*)
+\end{enumerate}
+\end{proof}
+
+
 \clearpage\bibliography{bib.bib}
 \end{document}
